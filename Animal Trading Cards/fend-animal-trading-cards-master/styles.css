@@ -1,0 +1,46 @@
+.frame1{ 
+	border: 2px ridge #fff;
+	width: 300px;
+	padding: 0.5em;
+}
+.top{
+	text-align: left;
+	width:300px;
+}
+.body {
+	font-family: 'Garamond';
+	width:300px;
+	padding: 0.5em;
+	font-size: xx-small;
+	text-align: justify;
+}
+.mid {
+	border: 1.5px ridge #fff;
+}
+.peregrinepic {
+    width:300px;
+}
+.scary {
+	font-style: italic;
+	font-size: xx-small;
+	width:300px;
+	padding: 0.5em;
+}
+.fact_list {
+	list-style-type: none;
+	font-weight: normal;
+	font-size: xx-small;
+	margin: 0.5em;
+	padding: 0;
+}
+.label {
+	font-weight: bold;
+	font-size: xx-small;
+}	
+.bottom {
+	font-weight: normal;
+	font-size: xx-small;
+	text-align: left;
+	margin-right:0.5em;
+	margin-left:0.5em;
+}
