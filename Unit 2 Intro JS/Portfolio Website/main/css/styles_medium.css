@@ -1,0 +1,79 @@
+img, embed, object, video {
+	max-width: 100%;
+}
+
+.container {
+	width:100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-content: center;
+	font-family: Helvetica, sans-serif;
+}
+
+
+.top {
+	order: 1;
+	display: flex;
+	border-bottom-style: outset;
+	padding-bottom: 2px;
+}
+
+.logo{
+	width: 50%;
+	margin: 0 auto;
+	justify-content: space-around;
+	text-align: left;
+}
+
+.nameandtitle {
+	width: 50%;
+	text-align: right;
+	font-family: Helvetica, sans-serif;
+}
+
+.mid{
+	order: 2;
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+}
+
+.imagebox{
+	margin: 2%;
+	width: 50%;
+	/*border: 2px solid;*/
+	align-content: center;
+	text-align: center;
+}
+.calvinface{
+	flex-shrink: 0;
+	border-radius: 10%;
+}
+
+.introbox{
+	width: 46%;
+	text-align: justify;
+	font-size: 100%;
+	font-family: Helvetica, sans-serif;
+	/*border: 2px solid;*/
+}
+
+footer{
+	order: 3;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.footer_text{
+	width: 100%;
+	text-align: center;
+}
+
+.footerimages{
+	display: flex;
+	text-align: center;
+	width: 100%;
+	flex-wrap: wrap;
+}

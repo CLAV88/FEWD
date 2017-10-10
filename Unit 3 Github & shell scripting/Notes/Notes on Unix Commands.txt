@@ -1,0 +1,64 @@
+
+
+Commands: [Navigation: {
+	def ls()
+		#shorthand for list
+		return "ls, This command is used to return the elements of the current directory, option -l,"
+	def cd()
+		#shorthand for change directory.
+		return "cd, This command is used to change the current directory option ".." will go up one level in a directory, "~" will list the objects in the home directory "
+	def pwd()
+		#shorthand for the parent working directory or current working directory, name.
+		return "pwd, This command returns the name of the directory the user is currently looking at."
+	def mkdir()
+		#shorthand for make directory
+		return "mkdir, This command creates a new subdirectory (child) to the current working directory."
+	def mv()
+		#shorthand for move
+		return "mv, This command is used to move objects from one directory to another directory.syntax: mv 'thisobjectordirectory' 'tothisdirectory'"
+	def curl()
+		#shorthand for see url or see webpage
+		return "curl, This command is used to retrieve the contents of a specified url to the terminal window, '-L' will return all info for the redirects, curl - o - L is used to write the contents of a page and its redirects to a newly named and created file, syntax: curl -o 'filename' -L 'www.webpagetodownload.com'"
+	def cat()
+		#shorthand for con'cat'enate to run sequentially together
+		return "cat, This command is used to list the contents of a file, usually text based."
+	def less()
+		# same as concatenate just less
+		return "less, This command is use to list a portion of a file one screenful at at a time, just like cat only in small chunks"
+	def rm()
+		#shorthand for "remove directory"
+		return "rm, This command is used to remove a selected file, syntax: rm 'filename' full path to file if not in the current directory,-i option to prompt for each directory removed"
+	def rmdir()
+		#shorthand for "remove directory"
+		return "rmdir, This command is used to remove a directory from a location on drive as apposed to rm which removes a file -i option to prompt for each directory removed"
+	def grep()
+		#searches a text file for a piece of text that matches a pattern similar to contain()
+		return "searches a text file for a piece of text that matches a pattern similar to contain(), you can pipe the output to wc to view the instances of a particular value within a file"
+	def echo()
+		return " print?"
+	
+	
+		
+}
+Modifying: {
+	def 
+
+}
+
+Special Chars: {
+	def !()
+		return "!, is a way to repeat the last instuciton at least once, the number of times is indicated by the number of instances of '!'"
+	def *()
+		return "*, wildcard special character"
+	def *()
+		return ".., wildcard special character"
+	def |()
+		return "|, this is the pipe operator which means to "
+	def =()
+		return "this is an assignment operator when used singularly doesn't accept any spaces"
+} 	
+
+##alias : assignment to a new variable. Hypthetical syllogism adding a new antecedent to a known function.
+
+
+]
