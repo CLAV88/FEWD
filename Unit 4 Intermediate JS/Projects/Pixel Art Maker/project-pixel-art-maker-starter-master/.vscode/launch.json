@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome",
+            "url": "http://localhost:49403",
+            "webRoot": "${workspaceRoot}"
+        },
+        {
             "name": "Debug IoT Edge Module (.NET Core)",
             "type": "coreclr",
             "request": "attach",
