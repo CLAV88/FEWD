@@ -30,12 +30,8 @@ function resetGrid() {
 //implying the resetGrid function has run, and the new params have been created, the event listeners have been added to each cell
 //----------------------------------------------------------------------------------//
 function fillcolor(){
-    $(this).toggleClass('colored');
     let newfill = $('#colorPicker').val();
-    $('.colored').css('background-color', newfill);
-    if(!$(this).is(".colored")) {
-        $(this).css('background-color',"");
-    }
+    $(this).css('background-color', newfill);
 };
 //----------------------------------------------------------------------------------//
 //This function is used to denote  the 
