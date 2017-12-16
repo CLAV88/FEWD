@@ -2,7 +2,7 @@
 // Select size input
 
 //-----------------------------------------------------------//
-//When the size button is pressoed run the saveData function
+//When the size button is pressed run the saveData function
 //----------------------------------------------------------//
 document.getElementById('sizePicker').onsubmit = function() {
     saveData();
