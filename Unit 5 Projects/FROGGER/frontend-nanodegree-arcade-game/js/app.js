@@ -58,25 +58,25 @@ Player.prototype.render = function () {
 Player.prototype.handleInput = function (keyCode) {
     switch(keyCode){
         case 'left':
-            if (player.col > 1 && player.col < 6){
-                player.col -= 1;
+            if (this.col > 1 && this.col < 6){
+                this.col -= 1;
             }
-            break
+            break;
         case 'up':
-            if (player.row > 1 && player.row < 7){
-                player.row -= 1;
+            if (this.row > 1 && this.row < 7){
+                this.row -= 1;
             }
-            break
+            break;
         case 'right':
-            if (player.col > 0 && player.col < 5){
-                player.col += 1;
+            if (this.col > 0 && this.col < 5){
+                this.col += 1;
             }
-            break
+            break;
         case 'down':
-            if (player.row > 0 && player.row < 6){
-                player.row += 1;
+            if (this.row > 0 && this.row < 6){
+                this.row += 1;
             }
-            break
+            break;
     };
 };
 // Now instantiate your objects.

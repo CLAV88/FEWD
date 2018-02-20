@@ -1,0 +1,22 @@
+{
+  "name": "fewd",
+  "version": "1.0.0",
+  "description": "FEWD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CLAV88/FEWD.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CLAV88/FEWD/issues"
+  },
+  "homepage": "https://github.com/CLAV88/FEWD#readme",
+  "devDependencies": {
+    "eslint-config-google": "^0.9.1"
+  }
+}
