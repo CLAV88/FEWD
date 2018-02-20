@@ -1,4 +1,4 @@
-let n = 3
+let n = 3;
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -6,7 +6,7 @@ var Enemy = function() {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    let trafficlanes = [225, 140, 60]
+    let trafficlanes = [225, 140, 60];
     this.sprite = 'images/enemy-bug.png';
     this.x = 0;
     this.y = trafficlanes[Math.floor((Math.random() * trafficlanes.length))];
@@ -24,7 +24,7 @@ Enemy.prototype.update = function(dt) {
         let trafficlanes = [225, 140, 60];
         this.x = 0;
         this.y = trafficlanes[Math.floor((Math.random() * trafficlanes.length))];
-    };
+    }
     this.x += dt * Math.floor((Math.random() * 600) + 1);
     this.col = Math.floor(this.x/101)+1;
     this.row = Math.floor(this.y/83)+2;
@@ -77,24 +77,24 @@ Player.prototype.handleInput = function (keyCode) {
                 this.row += 1;
             }
             break;
-    };
+    }
 };
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-let allEnemies = []
-let player = new Player
+let allEnemies = [];
+let player = new Player();
 
 let levelEnemies = function (n) {
     for (n; n > 0; n--){
-        let enemy = new Enemy;
+        let enemy = new Enemy();
         enemy.en_index = n;
         allEnemies.push(enemy);
     }
-    return allEnemies
+    return allEnemies;
 };
 
-levelEnemies(n)
+levelEnemies(n);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
