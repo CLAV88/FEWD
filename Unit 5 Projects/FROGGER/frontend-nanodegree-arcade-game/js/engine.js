@@ -27,23 +27,36 @@ var Engine = (function(global) {
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
-    const n = win.prompt("How many enemies are you willing to face?", "1 to 5")
-    const s = win.prompt("How fast should the enemies move?", "1 to 9") * 100
-    switch(n){
-        case null:
+    let n = win.prompt("How many enemies are you willing to face?", "1 to 5")
+    let s = win.prompt("How fast should the enemies move?", "1 to 9") * 100
+    switch(true){
+        case n == null:
             n = 1
+            alert("Defaulting to one enemy")
             break;
         case n >= 5:
             n = 5
             alert("Max number of enemies is five, so five it shall be.")
             break;
+        case isNaN(n):
+            n = 1
+            alert("Defaulting to one enemy")
+            break;
     }
-    switch(s){
-        case null: 
+    switch(true){
+        case s == null: 
             s = 100
             alert("Default enemy speed is one, so one it shall be.")
             break;
-        case s >= 9:
+        case isNaN(s):
+            s = 100
+            alert("Default enemy speed is one, so one it shall be.")
+            break;
+        case s == 0:
+            s = 100
+            alert("Default enemy speed is one, so one it shall be.")
+            break;
+        case s >= 900:
             s = 900
             alert("Maximum enemy speed is nine, so nine it shall be.")
             break;
@@ -103,7 +116,7 @@ var Engine = (function(global) {
     function update(dt) {
         updateEntities(dt,s);
         checkCollisions();
-        checkWin();
+        player.checkWin();
     }
 
     /* This is called by the update function and loops through all of the
@@ -134,16 +147,6 @@ var Engine = (function(global) {
        });
     }
 
-    /* This function will check if the player.col is on the top row, 
-    * if so then the player has won the game and a message box should be displayed.
-    */
-
-   function checkWin() {
-       if (player.row == 1) {
-           alert("You have succesfully reached the water, WINNER!")
-           location.reload()
-       };
-    }
 
     /* This function initially draws the "game level", it will then call
      * the renderEntities function. Remember, this function is called every

@@ -1,5 +1,4 @@
 "use strict";
-let n = 3
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -17,7 +16,7 @@ var Enemy = function() {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt,s) {
+Enemy.prototype.update = function(dt,s = 100) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -26,7 +25,7 @@ Enemy.prototype.update = function(dt,s) {
         this.x = 0;
         this.y = trafficlanes[Math.floor((Math.random() * trafficlanes.length))];
     }
-    this.x += dt * Math.floor((Math.random() * s) + 1);
+    this.x += dt * s;
     this.col = Math.floor(this.x/101)+1;
     this.row = Math.floor(this.y/83)+2;
 };
@@ -80,13 +79,26 @@ Player.prototype.handleInput = function (keyCode) {
             break;
     }
 };
+
+/* This function will check if the player.col is on the top row, 
+* if so then the player has won the game and a message box should be displayed.
+*/
+
+Player.prototype.checkWin = function () {
+    if (this.row == 1) {
+        alert("You have succesfully reached the water, WINNER!")
+        location.reload()
+    };
+ }
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+
 let allEnemies = [];
 let player = new Player();
 
-let levelEnemies = function (n) {
+let levelEnemies = function (n = 1) {
     for (n; n > 0; n--){
         let enemy = new Enemy();
         enemy.en_index = n;
