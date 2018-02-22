@@ -27,6 +27,27 @@ var Engine = (function(global) {
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
+    const n = win.prompt("How many enemies are you willing to face?", "1 to 5")
+    const s = win.prompt("How fast should the enemies move?", "1 to 9") * 100
+    switch(n){
+        case null:
+            n = 1
+            break;
+        case n >= 5:
+            n = 5
+            alert("Max number of enemies is five, so five it shall be.")
+            break;
+    }
+    switch(s){
+        case null: 
+            s = 100
+            alert("Default enemy speed is one, so one it shall be.")
+            break;
+        case s >= 9:
+            s = 900
+            alert("Maximum enemy speed is nine, so nine it shall be.")
+            break;
+    }
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -34,12 +55,13 @@ var Engine = (function(global) {
     function main() {
         /* Get our time delta information which is required if your game
          * requires smooth animation. Because everyone's computer processes
-         * instructions at different speeds we need a constant value that
+         * instructions at different speeds we need4 a constant value that
          * would be the same for everyone (regardless of how fast their
          * computer is) - hurray time!
          */
         var now = Date.now(),
             dt = (now - lastTime) / 1000.0;
+
 
         /* Call our update/render functions, pass along the time delta to
          * our update function since it may be used for smooth animation.
@@ -65,6 +87,7 @@ var Engine = (function(global) {
     function init() {
         reset();
         lastTime = Date.now();
+        levelEnemies(n)
         main();
     }
 
@@ -78,7 +101,7 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
-        updateEntities(dt);
+        updateEntities(dt,s);
         checkCollisions();
         checkWin();
     }
@@ -90,9 +113,9 @@ var Engine = (function(global) {
      * the data/properties related to the object. Do your drawing in your
      * render methods.
      */
-    function updateEntities(dt) {
+    function updateEntities(dt,s) {
         allEnemies.forEach(function(enemy) {
-            enemy.update(dt);
+            enemy.update(dt,s);
         });
         player.update();
     }

@@ -1,5 +1,5 @@
 "use strict";
-let n = 3;
+let n = 3
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -10,14 +10,14 @@ var Enemy = function() {
     let trafficlanes = [225, 140, 60];
     this.sprite = 'images/enemy-bug.png';
     this.x = 0;
-    this.y = trafficlanes[Math.floor(Math.random())];
+    this.y = trafficlanes[Math.floor(Math.random() * trafficlanes)];
     this.row = Math.floor(this.x/83)+1;
     this.col = Math.floor(this.y/101)+1;
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
+Enemy.prototype.update = function(dt,s) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -26,7 +26,7 @@ Enemy.prototype.update = function(dt) {
         this.x = 0;
         this.y = trafficlanes[Math.floor((Math.random() * trafficlanes.length))];
     }
-    this.x += dt * Math.floor((Math.random() * 600) + 1);
+    this.x += dt * Math.floor((Math.random() * s) + 1);
     this.col = Math.floor(this.x/101)+1;
     this.row = Math.floor(this.y/83)+2;
 };
@@ -95,7 +95,7 @@ let levelEnemies = function (n) {
     return allEnemies;
 };
 
-levelEnemies(n);
+
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
