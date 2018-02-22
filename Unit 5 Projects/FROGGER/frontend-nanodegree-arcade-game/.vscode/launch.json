@@ -1,15 +1,15 @@
-{
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.1.0",
-    "configurations": [
-        {
-            "name": "Launch index.html (disable sourcemaps)",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceFolder}/index.html"
-        },
-    ]
-}
+    {
+        "version": "0.1.0",
+        "configurations": [
+            {
+                "name": "Launch index.html (disable sourcemaps)",
+                "type": "chrome",
+                "request": "launch",
+                "sourceMaps": false,
+                "file": "C:\\Users\\calvi\\OneDrive\\Udacity Front End Web Developer Course\\FEWD\\Unit 5 Projects\\FROGGER\\frontend-nanodegree-arcade-game\\index.html"
+            },
+        ]
+    }

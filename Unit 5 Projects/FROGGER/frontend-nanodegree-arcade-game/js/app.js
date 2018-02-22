@@ -1,3 +1,4 @@
+"use strict";
 let n = 3;
 // Enemies our player must avoid
 var Enemy = function() {
@@ -9,7 +10,7 @@ var Enemy = function() {
     let trafficlanes = [225, 140, 60];
     this.sprite = 'images/enemy-bug.png';
     this.x = 0;
-    this.y = trafficlanes[Math.floor((Math.random() * trafficlanes.length))];
+    this.y = trafficlanes[Math.floor(Math.random())];
     this.row = Math.floor(this.x/83)+1;
     this.col = Math.floor(this.y/101)+1;
 };
