@@ -63,7 +63,7 @@ $(function() {
          */
 
         it('menu element is hidden by default', function() {
-            expect($('body')[0].className).toBe("menu-hidden")
+            expect($('body')[0].className).toBe("menu-hidden");
         });
 
          /* TODO: Write a test that ensures the menu changes
@@ -75,7 +75,7 @@ $(function() {
         it('click event is toggling menu list', function() {
             var menu_icon = $('.menu-icon-link');
             var spyEvent = spyOn(menu_icon, 'click');
-            menu_icon.click()
+            menu_icon.click();
             expect( spyEvent ).toHaveBeenCalled();
         });
     });
@@ -95,10 +95,10 @@ $(function() {
         });
 
         it('loadfeed function completes with x>0 entries', function(done) {
-            var container = $('.feed')
+            var container = $('.feed');
             expect(container.length).toBeDefined();
             expect(container.length).not.toBe(0);
-            done()
+            done();
         });
     });
     /* TODO: Write a new test suite named "New Feed Selection" */
@@ -110,15 +110,15 @@ $(function() {
         
         beforeEach(function(done) {
             loadFeed(0);
-            done()
+            done();
         });
-        var container_entry = $('.feed-list li')
+        var container_entry = $('.feed-list li');
         
         it('content changes', function(done) {
-            console.log(container_entry[0].textContent)
-            console.log(container_entry[1].textContent)
+            console.log(container_entry[0].textContent);
+            console.log(container_entry[1].textContent);
             expect(container_entry[0].textContent).not.toMatch(container_entry[1].textContent);
-            done()
+            done();
         });
     });
 });
