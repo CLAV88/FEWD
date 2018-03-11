@@ -7,15 +7,9 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome",
+            "name": "Launch Chrome against localhost",
             "url": "http://localhost:8080",
-            "file":"${workspaceFolder}/index.html"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${file}"
+            "file": "${workspaceFolder}/index.html"
         }
     ]
 }
