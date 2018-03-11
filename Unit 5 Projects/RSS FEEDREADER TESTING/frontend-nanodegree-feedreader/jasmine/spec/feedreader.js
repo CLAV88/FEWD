@@ -14,7 +14,7 @@ $(function() {
     * feeds definitions, the allFeeds variable in our application.
     */
     describe('RSS Feeds', function() {
-        /* A to make sure that the
+        /* A test to make sure that the
          * allFeeds variable has been defined and that it is not
          * empty. Experiment with this before you get started on
          * the rest of this project. What happens when you change
@@ -72,10 +72,11 @@ $(function() {
           */
     
         it('click event is toggling menu list', function() {
+            var body_el = $('.body');
             var menu_icon = $('.menu-icon-link');
-            var spyEvent = spyOn(menu_icon, 'click');
-            menu_icon.click();
-            expect( spyEvent ).toHaveBeenCalled();
+            menu_icon.click(); //Click menu
+            expect(body_el.hasClass('menu-hidden')).toBe(false); //check to see if menu-hidden is toggled
+            menu_icon.click(); //restore to previously checked default state of hidden
         });
     });
             /* A test that ensures when the loadFeed
@@ -104,14 +105,22 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        
+        var content_holder = [];
         beforeEach(function(done) {
-            loadFeed(0, loadFeed(1,done));
+            var container = $('.feed');
+            loadFeed(0, function() {
+                var prevUrl = container[0].innerHTML;
+                content_holder.push(prevUrl);
+                loadFeed(1, function(){
+                    var currUrl = container[0].innerHTML;
+                    content_holder.push(currUrl);
+                    done();
+                });
+            });
         });
-        var container_entry = $('.feed-list li');
         
         it('content changes', function(done) {
-            expect(container_entry[0].textContent).not.toMatch(container_entry[1].textContent);
+            expect(content_holder[0]).not.toMatch(content_holder[1]);
             done();
         });
     });
