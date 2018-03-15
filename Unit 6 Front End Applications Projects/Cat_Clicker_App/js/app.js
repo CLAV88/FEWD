@@ -1,7 +1,12 @@
-let cat_pic_1 = $('#cat_pic_1');
-let click_count = 0;
-
-cat_pic_1.click(function(e) {
-    ++click_count;
-    return click_count;
-});
+let img_ary = $('.main_img').children().toArray();
+img_ary.forEach(click_pic);
+//Constructor function for the pics
+function click_pic(pic) {
+    this.pic_count = 0;
+    this.pic_name = this.alt;
+    this.pic_src = this.src;
+    this.click(function(e) {
+        ++pic_count;
+        return pic_count;
+    });
+}
