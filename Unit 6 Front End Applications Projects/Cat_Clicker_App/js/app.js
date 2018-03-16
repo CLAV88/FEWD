@@ -1,12 +1,22 @@
-let img_ary = $('.main_img').children().toArray();
-img_ary.forEach(click_pic);
 //Constructor function for the pics
-function click_pic(pic) {
+function Picture (img_obj) {
+    name = img_obj.alt;
     this.pic_count = 0;
-    this.pic_name = this.alt;
-    this.pic_src = this.src;
-    this.click(function(e) {
-        ++pic_count;
-        return pic_count;
-    });
 }
+
+Picture.prototype.updateClick = function () {
+    this.pic_count += 1;
+};
+
+let img_ary = $('.main_img').children().toArray();
+let cat_pic_ary = [];
+
+for (let i = 0;  i < img_ary.length; i++) {
+    console.log(img_ary[i]);
+    let cat_pic = new Picture(img_ary[i]);
+    cat_pic_ary.push(cat_pic);
+    img_ary[i].addEventListener("click", function() {cat_pic_ary[1].updateClick();}, false);
+}
+
+
+
