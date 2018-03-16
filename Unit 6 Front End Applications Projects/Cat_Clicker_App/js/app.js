@@ -15,7 +15,7 @@ for (let i = 0;  i < img_ary.length; i++) {
     console.log(img_ary[i]);
     let cat_pic = new Picture(img_ary[i]);
     cat_pic_ary.push(cat_pic);
-    img_ary[i].addEventListener("click", function() {cat_pic_ary[1].updateClick();}, false);
+    img_ary[i].addEventListener("click", function() {cat_pic_ary[i].updateClick();}, false);
 }
 
 
