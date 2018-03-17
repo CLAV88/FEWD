@@ -10,6 +10,15 @@ body {
     margin: 0;
 }
 
+figcaption {
+    color: #111;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    text-justify: auto;
+    display: block;
+    margin: 0;
+}
+
 a {
     text-decoration: none;
     color: #111;
@@ -18,6 +27,7 @@ a {
 img {
     max-width: 25%;
     max-height: 25%;
+    align-content: center
 }
 
 a:hover h2 {
