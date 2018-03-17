@@ -8,7 +8,7 @@ function Picture (img_obj, i) {
 
 Picture.prototype.update = function () {
     this.pic_count += 1;
-    figCaptionArray[this.index].innerText = this.name + "Clicks:" + this.pic_count;
+    figCaptionArray[this.index].innerText = this.name + " Clicks:" + this.pic_count;
 };
 
 let imgArray = $('.main_img').children('img').toArray();
