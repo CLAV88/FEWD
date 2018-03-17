@@ -8,15 +8,20 @@ Picture.prototype.updateClick = function () {
     this.pic_count += 1;
 };
 
-let img_ary = $('.main_img').children().toArray();
-let cat_pic_ary = [];
+let imgArray = $('.main_img').children().toArray();
+let catPicArray = [];
 
-for (let i = 0;  i < img_ary.length; i++) {
-    console.log(img_ary[i]);
-    let cat_pic = new Picture(img_ary[i]);
-    cat_pic_ary.push(cat_pic);
-    img_ary[i].addEventListener("click", function() {cat_pic_ary[i].updateClick();}, false);
+for (let i = 0;  i < imgArray.length; i++) {
+    console.log(imgArray[i]);
+    let cat_pic = new Picture(imgArray[i]);
+    catPicArray.push(cat_pic);
+    imgArray[i].addEventListener("click", imageInstance(i)(i), false);
 }
+
+function imageInstance(i) {
+    catPicArray[i].updateClick();
+}
+
 
 
 

@@ -15,6 +15,11 @@ a {
     color: #111;
 }
 
+img {
+    max-width: 25%;
+    max-height: 25%;
+}
+
 a:hover h2 {
     text-decoration: underline;
 }
