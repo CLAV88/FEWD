@@ -40,18 +40,19 @@ function loadCat(id) {
 
 init();
 
+
+
+$(function() {
     /* Loop through all of our cat images, assigning an id property to
      * each of the feeds based upon its index within the array.
      * Then parse that feed against the feedItemTemplate (created
      * above using Handlebars) and append it to the list of all
      * available feeds within the menu.
      */
-
-$(function() {
     let catId = 0,
-        menuIcon = $('.menu-icon-link');
+        menuIcon = $('.menu-icon-link'),
         catList = $('.cat-list'),
-        feedItemTemplate = Handlebars.compile($('.tpl-cat-list').html()),
+        feedItemTemplate = Handlebars.compile($('.tpl-cat-list').html());
     
     allCats.forEach(function(catpic) {
         catpic.id = catId;
