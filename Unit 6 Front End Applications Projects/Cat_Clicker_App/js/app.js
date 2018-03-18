@@ -35,8 +35,8 @@ function loadCat(id) {
     imageTemplate = Handlebars.compile($('.tpl-main_img').html());
     mainImg.empty();
     mainImg.append(imageTemplate(allCats[id]));
-    $('.main_img').click(function(e) {
-        allCats[id].click_count = allCats[id].click_count + 1;
+    $('.main_img img').click(function(e) {
+        ++allCats[id].click_count;
         loadCat(id);
     });
 }
