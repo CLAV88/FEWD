@@ -43,20 +43,32 @@ init();
      * above using Handlebars) and append it to the list of all
      * available feeds within the menu.
      */
-    allFeeds.forEach(function(feed) {
-        feed.id = feedId;
-        feedList.append(feedItemTemplate(feed));
 
-        feedId++;
+$(function() {
+    let catId = 0,
+        menuIcon = $('.menu-icon-link');
+    
+    allCats.forEach(function(catpic) {
+        catpic.id = catId;
+        feedList.append(feedItemTemplate(catpic));
+        catId++;
     });
 
-feedList.on('click', 'a', function() {
-    var item = $(this);
+    feedList.on('click', 'a', function() {
+        let item = $(this);
 
-    $('body').addClass('menu-hidden');
-    loadFeed(item.data('id'));
-    return false;
-});
+        $('body').addClass('menu-hidden');
+        loadFeed(item.data('id'));
+        return false;
+    });
+    /* When the menu icon is clicked on, we need to toggle a class
+     * on the body to perform the hiding/showing of our menu.
+     */
+    menuIcon.on('click', function() {
+        $('body').toggleClass('menu-hidden');
+    });
+
+})
 /* //Constructor function for the pics
 // The names and URLs to all of the feeds we'd like available.
 function Picture (img_obj, i) {

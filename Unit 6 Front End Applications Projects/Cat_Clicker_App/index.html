@@ -20,13 +20,15 @@
             <div class="slide-menu">
                 <ul class="feed-list"></ul>
             </div>
-            <div class="slide-menu">
-                <ul class="feed-list"></ul>
-            </div>
             <div class="main_img">
                 <img></img>
                 <figcaption></figcaption>
             </div>
+            <script class="tpl-feed-list-item" type="text/x-handlebars-template">
+                <li>
+                    <a href="#" data-id="{{id}}">{{name}}</a>
+                </li>
+            </script>
             <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <script src="js/app.js"></script>
     </body>
