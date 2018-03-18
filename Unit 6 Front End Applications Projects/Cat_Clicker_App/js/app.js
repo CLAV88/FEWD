@@ -1,4 +1,64 @@
-//Constructor function for the pics
+let allCats = [
+    {
+        source:"assets/cat_pic_1.jpg",
+        alt: "Kitten Pic",
+        click_count:0
+    }, {
+        source:"assets/cat_pic_2.jpg",
+        alt: "Half-look Turquoise Cat",
+        click_count:0
+    }, {
+        source:"assets/cat_in_the_box.jpg",
+        alt: "Cat In The Box",
+        click_count:0
+    }, {
+        source:"assets/glowing_opals_cat.jpeg",
+        alt: "Glowing Opals",
+        click_count:0
+    }, {
+        source:"assets/taco_cat.png",
+        alt: "Taco Cat",
+        click_count:0
+    }
+ ]; 
+
+function init(){
+loadCat(0);
+}
+
+function loadCat(id) {
+    let img_template = $('.main_img img');
+    let img_caption = $('.main_img figcaption');
+    img_template.attr('src', allCats[id].source);
+    img_template.attr('id' , "cat_pic_"+id);
+    img_template.attr('alt', allCats[id].alt);
+    img_caption.text(allCats[id].alt + " Clicks:" + allCats[id].click_count);
+}
+
+init();
+
+    /* Loop through all of our cat images, assigning an id property to
+     * each of the feeds based upon its index within the array.
+     * Then parse that feed against the feedItemTemplate (created
+     * above using Handlebars) and append it to the list of all
+     * available feeds within the menu.
+     */
+    allFeeds.forEach(function(feed) {
+        feed.id = feedId;
+        feedList.append(feedItemTemplate(feed));
+
+        feedId++;
+    });
+
+feedList.on('click', 'a', function() {
+    var item = $(this);
+
+    $('body').addClass('menu-hidden');
+    loadFeed(item.data('id'));
+    return false;
+});
+/* //Constructor function for the pics
+// The names and URLs to all of the feeds we'd like available.
 function Picture (img_obj, i) {
     this.name = img_obj.alt;
     this.pic_count = 0;
@@ -20,7 +80,7 @@ for (let i = 0;  i < imgArray.length; i++) {
     catPicArray.push(cat_pic);
     imgArray[i].addEventListener("click", function () { catPicArray[i].update();}, false);
 }
-
+ */
 
 
 
