@@ -1,3 +1,4 @@
+
 let allCats = [
     {
         source:"assets/cat_pic_1.jpg",
@@ -26,6 +27,8 @@ function init(){
 loadCat(0);
 }
 
+
+//need to modify the loadCat function to use only handlebars like the function that populates the menu
 function loadCat(id) {
     let img_template = $('.main_img img');
     let img_caption = $('.main_img figcaption');
@@ -47,18 +50,20 @@ init();
 $(function() {
     let catId = 0,
         menuIcon = $('.menu-icon-link');
+        catList = $('.cat-list'),
+        feedItemTemplate = Handlebars.compile($('.tpl-cat-list').html()),
     
     allCats.forEach(function(catpic) {
         catpic.id = catId;
-        feedList.append(feedItemTemplate(catpic));
+        catList.append(feedItemTemplate(catpic));
         catId++;
     });
 
-    feedList.on('click', 'a', function() {
+    catList.on('click', 'a', function() {
         let item = $(this);
 
         $('body').addClass('menu-hidden');
-        loadFeed(item.data('id'));
+        loadCat(item.data('id'));
         return false;
     });
     /* When the menu icon is clicked on, we need to toggle a class
@@ -68,7 +73,7 @@ $(function() {
         $('body').toggleClass('menu-hidden');
     });
 
-})
+});
 /* //Constructor function for the pics
 // The names and URLs to all of the feeds we'd like available.
 function Picture (img_obj, i) {
