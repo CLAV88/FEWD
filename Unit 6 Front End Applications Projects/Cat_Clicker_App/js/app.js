@@ -30,12 +30,10 @@ loadCat(0);
 
 //need to modify the loadCat function to use only handlebars like the function that populates the menu
 function loadCat(id) {
-    let img_template = $('.main_img img');
-    let img_caption = $('.main_img figcaption');
-    img_template.attr('src', allCats[id].source);
-    img_template.attr('id' , "cat_pic_"+id);
-    img_template.attr('alt', allCats[id].alt);
-    img_caption.text(allCats[id].alt + " Clicks:" + allCats[id].click_count);
+    let mainImg = $('.main_img');
+    imageTemplate = Handlebars.compile($('.tpl-main_img').html());
+    mainImg.empty();
+    mainImg.append(imageTemplate(allCats[id]));
 }
 
 init();

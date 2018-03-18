@@ -23,9 +23,11 @@
                 <ul class="cat-list"></ul>
             </div>
             <div class="main_img">
-                <img></img>
-                <figcaption></figcaption>
             </div>
+            <script class="tpl-main_img" type="text/x-handlebars-template">
+                <img src={{source}} alt={{alt}} id="cat_pic_"{{id}}>
+                <figcaption>{{alt}} Clicks: {{click_count}}</figcaption>
+            </script>
             <script class="tpl-cat-list" type="text/x-handlebars-template">
                 <li>
                     <a href="#" data-id="{{id}}">{{alt}}</a>

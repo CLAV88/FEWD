@@ -33,8 +33,6 @@ body {
 article,
 aside,
 details,
-figcaption,
-figure,
 footer,
 header,
 hgroup,
@@ -44,6 +42,16 @@ nav,
 section,
 summary {
   display: block;
+}
+
+figcaption,
+figure {
+  color: #111;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  text-justify: auto;
+  display: block;
+  margin: 0;
 }
 
 /**
