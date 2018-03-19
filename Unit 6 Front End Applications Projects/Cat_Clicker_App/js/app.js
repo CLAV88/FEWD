@@ -1,3 +1,4 @@
+let currentCatId = "";
 let allCats = [
     {
         source:"https://farm2.staticflickr.com/1126/625069434_db86b67df8_z.jpg",
@@ -37,6 +38,11 @@ function loadCat(id) {
         ++allCats[id].click_count;
         loadCat(id);
     });
+    if (currentCatId === id){
+        //do nothing
+    }else{
+        currentCatId = id;
+    }
 }
 $(function() {
     /* Loop through all of our cat images, assigning an id property to
@@ -84,11 +90,13 @@ function modOrAdd(){
         modifyCat();
     }else if (response=="A"){
         addCat();
+    }else{
+        alert("changes cancelled!");
     }
 }
 
 function modifyCat() {
-    let currentCat = $('.main_img img');
+
     let newAddy = prompt("Please add url", "www.cutecatpic.com/cute");
     if (newAddy == null) {
         alert("Add Cat Cancelled!");
@@ -103,14 +111,21 @@ function modifyCat() {
             alert("Input not valid, please try again");
             addCat();
         }
-        let newCat = {
+        let newcat = {
             source:newAddy,
             alt: newName,
-            click_count:0
+            click_count:0,
+            id: allCats.length-1
         };
-        allCats.append(newCat);
-        $('.cat-list li')[currentCat.id].addClass('-hide');
+        let currentcat = 
+        allCats.push(newcat);
+        catListItems = $('.cat-list li');
+        $(catListItems[currentCatId]).addClass('item-hidden');
     }
+    let catList = $('.cat-list'),
+        catItemTemplate = Handlebars.compile($('.tpl-cat-list').html());
+    catList.append(catItemTemplate(allCats[allCats.length -1]));
+    loadCat(allCats.length-1);
 }
 
 function addCat() {
