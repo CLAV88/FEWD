@@ -1,4 +1,3 @@
-
 let allCats = [
     {
         source:"https://farm2.staticflickr.com/1126/625069434_db86b67df8_z.jpg",
@@ -23,11 +22,9 @@ let allCats = [
     }
  ]; 
 
-function init(){
-loadCat(0);
+function init() {
+    loadCat(0);
 }
-
-
 //need to modify the loadCat function to use only handlebars like the function that populates the menu
 function loadCat(id) {
     let mainImg = $('.main_img'),
@@ -41,23 +38,18 @@ function loadCat(id) {
         loadCat(id);
     });
 }
-
-init();
-
-
-
 $(function() {
     /* Loop through all of our cat images, assigning an id property to
-     * each of the feeds based upon its index within the array.
-     * Then parse that feed against the feedItemTemplate (created
-     * above using Handlebars) and append it to the list of all
-     * available feeds within the menu.
-     */
+    * each of the feeds based upon its index within the array.
+    * Then parse that feed against the feedItemTemplate (created
+    * above using Handlebars) and append it to the list of all
+    * available feeds within the menu.
+    */
     let catId = 0,
         menuIcon = $('.menu-icon-link'),
         catList = $('.cat-list'),
         catItemTemplate = Handlebars.compile($('.tpl-cat-list').html());
-    
+
     allCats.forEach(function(catpic) {
         catpic.id = catId;
         catList.append(catItemTemplate(catpic));
@@ -71,15 +63,31 @@ $(function() {
         return false;
     });
     /* When the menu icon is clicked on, we need to toggle a class
-     * on the body to perform the hiding/showing of our menu.
-     */
+    * on the body to perform the hiding/showing of our menu.
+    */
     menuIcon.on('click', function() {
         $('body').toggleClass('menu-hidden');
     });
-
 });
 
-function addCat() {
+
+init();
+
+function modOrAdd(){
+    let response = prompt("Do you want to modify (M) or create a new cat pic (A)?", "M or A");
+    if (response == null){
+        alert("changes cancelled!");
+    }else if(response==""){
+        alert("Input not valid, please try again");
+        modOrAdd();
+    }else if(response=="M"){
+        modifyCat();
+    }else if (response=="A"){
+        addCat();
+    }
+}
+
+function modifyCat() {
     let currentCat = $('.main_img img');
     let newAddy = prompt("Please add url", "www.cutecatpic.com/cute");
     if (newAddy == null) {
@@ -101,10 +109,40 @@ function addCat() {
             click_count:0
         };
         allCats.append(newCat);
-        //addclass to $('.cat-list li')[currentCat.id].addClass('hide')
+        $('.cat-list li')[currentCat.id].addClass('-hide');
     }
 }
-function authadmin() {
+
+function addCat() {
+    let currentCat = $('.main_img img');
+    let newAddy = prompt("Please add url", "www.cutecatpic.com/cute");
+    if (newAddy == null) {
+        alert("Add Cat Cancelled!");
+    }else if(newAddy == "") {
+        alert("Input not valid, please try again");
+        addCat();
+    }else{
+        let newName = prompt("Please add a name for the new picture", "Lucky Cat");
+        if (newName == null){
+            alert("Add Cat Cancelled");
+        }else if (newName == "") {
+            alert("Input not valid, please try again");
+            addCat();
+        }
+        let newcat = {
+            source:newAddy,
+            alt:newName,
+            click_count:0,
+            id: allCats.length
+        };
+        allCats.push(newcat);
+    }
+    let catList = $('.cat-list'),
+        catItemTemplate = Handlebars.compile($('.tpl-cat-list').html());
+    catList.append(catItemTemplate(allCats[allCats.length -1]));
+    loadCat(allCats.length-1);
+}
+function authAdmin() {
     let authinput = prompt("enter admin password", "");
     if (authinput ==null){
         alert("Authorization Cancelled!");

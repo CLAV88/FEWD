@@ -20,7 +20,15 @@ a {
 }
 
 .cat-list li.hidden {
-    visibility: hidden;
+    visibility: none;
+}
+
+button.modify-button-hidden{
+    visibility: none;
+}
+
+button.modify-button{
+    display: inline-block;
 }
 
 .main_img {
