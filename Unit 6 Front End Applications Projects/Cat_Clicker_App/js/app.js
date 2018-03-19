@@ -115,7 +115,7 @@ function modifyCat() {
             source:newAddy,
             alt: newName,
             click_count:0,
-            id: allCats.length-1
+            id: allCats.length
         };
         let currentcat = 
         allCats.push(newcat);
