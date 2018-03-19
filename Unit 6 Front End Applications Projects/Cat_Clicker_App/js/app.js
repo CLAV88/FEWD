@@ -2,10 +2,10 @@
 let allCats = [
     {
         source:"https://farm2.staticflickr.com/1126/625069434_db86b67df8_z.jpg",
-        alt: "Xuxa the Kitten #7",
+        alt: "Xuxa the Kitten",
         click_count:0
     }, {
-        source:"assets/cat_pic_2.jpg",
+        source:"https://farm3.staticflickr.com/2298/2290467335_89067c7b51_z.jpg" ,
         alt: "Half-look Turquoise Cat",
         click_count:0
     }, {
