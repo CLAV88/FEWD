@@ -21,7 +21,6 @@ a {
 
 .cat-list li.item-hidden {
     visibility: hidden;
-    visibility: none;
 }
 
 button.modify-button-hidden{
