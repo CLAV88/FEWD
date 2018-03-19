@@ -1,7 +1,8 @@
+
 let allCats = [
     {
-        source:"assets/cat_pic_1.jpg",
-        alt: "Kitten Pic",
+        source:"https://farm2.staticflickr.com/1126/625069434_db86b67df8_z.jpg",
+        alt: "Xuxa the Kitten #7",
         click_count:0
     }, {
         source:"assets/cat_pic_2.jpg",
@@ -55,17 +56,16 @@ $(function() {
     let catId = 0,
         menuIcon = $('.menu-icon-link'),
         catList = $('.cat-list'),
-        feedItemTemplate = Handlebars.compile($('.tpl-cat-list').html());
+        catItemTemplate = Handlebars.compile($('.tpl-cat-list').html());
     
     allCats.forEach(function(catpic) {
         catpic.id = catId;
-        catList.append(feedItemTemplate(catpic));
+        catList.append(catItemTemplate(catpic));
         catId++;
     });
 
     catList.on('click', 'a', function() {
         let item = $(this);
-
         $('body').addClass('menu-hidden');
         loadCat(item.data('id'));
         return false;
@@ -78,6 +78,42 @@ $(function() {
     });
 
 });
+
+function addCat() {
+    let currentCat = $('.main_img img');
+    let newAddy = prompt("Please add url", "www.cutecatpic.com/cute");
+    if (newAddy == null) {
+        alert("Add Cat Cancelled!");
+    }else if(newAddy == "") {
+        alert("Input not valid, please try again");
+        addCat();
+    }else{
+        let newName = prompt("Please add a name for the new picture", "Lucky Cat");
+        if (newName == null){
+            alert("Add Cat Cancelled");
+        }else if (newName == "") {
+            alert("Input not valid, please try again");
+            addCat();
+        }
+        let newCat = {
+            source:newAddy,
+            alt: newName,
+            click_count:0
+        };
+        allCats.append(newCat);
+        //addclass to $('.cat-list li')[currentCat.id].addClass('hide')
+    }
+}
+function authadmin() {
+    let authinput = prompt("enter admin password", "");
+    if (authinput ==null){
+        alert("Authorization Cancelled!");
+    }else if(authinput == "") {
+
+    }else if (authinput == "test") {
+        $(".buttons button").disabled = false; //addcat button should be disabled to begin with.
+    }
+}
 /* //Constructor function for the pics
 // The names and URLs to all of the feeds we'd like available.
 function Picture (img_obj, i) {

@@ -10,10 +10,17 @@ body {
     margin: 0;
 }
 
+div.buttons {
+text-align: center;
+}
 
 a {
     text-decoration: none;
     color: #111;
+}
+
+.cat-list li.hidden {
+    visibility: hidden;
 }
 
 .main_img {
