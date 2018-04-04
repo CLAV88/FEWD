@@ -11,4 +11,16 @@
         responseContainer.innerHTML = '';
         searchedForText = searchField.value;
     });
+
+    function addImage(images) {
+        const firstImage = images.results[0];
+
+        responseContainer.insertAdjacentHTML('afterbegin', `<figure>
+                <img src="${firstImage.urls.small}" alt="${searchedForText}">
+                <figcaption>${searchedForText} by ${firstImage.user.name}</figcaption>
+            </figure>`
+        );
+    }
 })();
+
+

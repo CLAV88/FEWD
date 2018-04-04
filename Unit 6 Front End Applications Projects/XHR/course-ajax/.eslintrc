@@ -31,6 +31,7 @@
     "no-sequences": "error",
     "no-unused-expressions": "error",
     "no-with": "error",
+    "no-unused-vars":"off",
     "yoda": "error",
     "array-bracket-spacing": [
       "error",
