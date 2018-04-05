@@ -11,8 +11,7 @@
         fetch(`https://api.unsplash.com/search/photos?client_id=26307bda28a40deef21ea74f3c70829479fe6fdf204b8594bd568abe5b90cc3c&page=1&query=${searchedForText}`, {
             method: 'GET',
             mode: 'no-cors',
-        }).then(response => response.json())
-            .then(addImage);
+        }).then(response => response.json()).then(addImage);
         function addImage(data) {
             let htmlContent = '';
             const firstImage = data.results[0];
