@@ -11,7 +11,7 @@
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}",
-            "file":"${workspaceFolder}/lesson-2-async-w-jQuery/index.html"
+            "file":"${workspaceFolder}/lesson-3-async-w-fetch/index.html"
         }
     ]
 }

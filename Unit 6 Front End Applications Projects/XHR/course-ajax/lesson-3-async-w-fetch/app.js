@@ -8,15 +8,23 @@
         e.preventDefault();
         responseContainer.innerHTML = '';
         searchedForText = searchField.value;
-        fetch(`https://api.unsplash.com/search/photos?page=1&query=hippos`, {
+        fetch(`https://api.unsplash.com/search/photos?client_id=26307bda28a40deef21ea74f3c70829479fe6fdf204b8594bd568abe5b90cc3c&page=1&query=${searchedForText}`, {
+            method: 'GET',
             mode: 'no-cors',
-            headers: {
-                Authorization: 'Client-ID 960ee6e399c6b61b9f2886b126caf7bcdc6c7d41bc5c2b9a874bbb028adc887a',
+        }).then(response => response.json())
+            .then(addImage);
+        function addImage(data) {
+            let htmlContent = '';
+            const firstImage = data.results[0];
+            if (firstImage) {
+                htmlContent = `<figure>
+                    <img src="${firstImage.urls.small}" alt="${searchedForText}">
+                    <figcaption>${searchedForText} by ${firstImage.user.name}</figcaption>
+                </figure>`;
+            } else {
+                htmlContent = 'Unfortunately, no image was returned for your search.';
             }
-        }).then(function (response) {
-            debugger;// work with the returned response
-        });
+            responseContainer.insertAdjacentHTML('afterbegin', htmlContent);
+        }
     });
-
-
 })();

@@ -15,7 +15,7 @@ const responseContainer = document.querySelector('#response-container');
 
 unsplashRequest.open('GET', `https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`);
 unsplashRequest.onload = addImage;
-unsplashRequest.setRequestHeader('Authorization', 'Client ID 960ee6e399c6b61b9f2886b126caf7bcdc6c7d41bc5c2b9a874bbb028adc887a');
+unsplashRequest.setRequestHeader('Authorization', 'Client-ID 960ee6e399c6b61b9f2886b126caf7bcdc6c7d41bc5c2b9a874bbb028adc887a');
 unsplashRequest.send();
 function addImage() {
     console.log('adding image successful');

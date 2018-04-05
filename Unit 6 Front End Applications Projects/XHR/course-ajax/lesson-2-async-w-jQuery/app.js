@@ -11,27 +11,33 @@
         responseContainer.innerHTML = '';
         searchedForText = searchField.value;
         $.ajax({
-            url: `https://unsplash.com/napi/search?query=${searchedForText}`,
+            url: `https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`,
             type: 'GET',
             dataType: 'jsonp',
             headers: {
-                Authorization: 'Client-ID 960ee6e399c6b61b9f2886b126caf7bcdc6c7d41bc5c2b9a874bbb028adc887a'
+                'Authorization': 'Client-ID 26307bda28a40deef21ea74f3c70829479fe6fdf204b8594bd568abe5b90cc3c'
             }
-        }).done(addImage);
-        function addImage(data) {
-            let htmlContent = '';
-            if (data && data.results && data.results.length > 1) {
-                const firstImage = data.results[0];
-                htmlContent = `<figure>
-                    <img src="${firstImage.urls.small}" alt="${searchedForText}">
-                    <figcaption>${searchedForText} by ${firstImage.user.name}</figcaption>
-                </figure>`;
-            } else {
-                htmlContent = '<div class="error-no-image">No images avaiable</div>';
-            }
-            responseContainer.insertAdjacentHTML('afterbegin', htmlContent);
-        }
+        }).done(addImage)
+            .fail(function (err) {
+                requestError(err, 'image');
+            });
     });
+    function addImage(data) {
+        let htmlContent = '';
+        if (data && data.results && data.results.length > 1) {
+            const firstImage = data.results[0];
+            htmlContent = `<figure>
+                <img src="${firstImage.urls.small}" alt="${searchedForText}">
+                <figcaption>${searchedForText} by ${firstImage.user.name}</figcaption>
+            </figure>`;
+        } else {
+            htmlContent = '<div class="error-no-image">No images avaiable</div>';
+        }
+        responseContainer.insertAdjacentHTML('afterbegin', htmlContent);
+    }
+    function requestError(e, part) {
+        console.log(e);
+    }
 })();
 
 
