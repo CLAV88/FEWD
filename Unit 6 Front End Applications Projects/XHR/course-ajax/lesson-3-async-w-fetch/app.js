@@ -8,10 +8,13 @@
         e.preventDefault();
         responseContainer.innerHTML = '';
         searchedForText = searchField.value;
-        fetch(`https://api.unsplash.com/search/photos?client_id=26307bda28a40deef21ea74f3c70829479fe6fdf204b8594bd568abe5b90cc3c&page=1&query=${searchedForText}`, {
+        fetch(`https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`, {
             method: 'GET',
             mode: 'no-cors',
-        }).then(response => response.json()).then(addImage);
+            headers: {
+                Authorization: 'Client-ID 26307bda28a40deef21ea74f3c70829479fe6fdf204b8594bd568abe5b90cc3c'
+            }
+        }).then(response => response.json()).then(addImage).catch(f => requestError(f, 'image'));
         function addImage(data) {
             let htmlContent = '';
             const firstImage = data.results[0];
@@ -24,6 +27,10 @@
                 htmlContent = 'Unfortunately, no image was returned for your search.';
             }
             responseContainer.insertAdjacentHTML('afterbegin', htmlContent);
+        }
+        function requestError(f, part) {
+            console.log(f);
+            responseContainer.insertAdjacentHTML('beforend', `<p class="network-warning">"Error during request for the ${part}.</p>`);
         }
     });
 })();

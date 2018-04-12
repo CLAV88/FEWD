@@ -13,9 +13,8 @@
         $.ajax({
             url: `https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`,
             type: 'GET',
-            dataType: 'jsonp',
             headers: {
-                'Authorization': 'Client-ID 26307bda28a40deef21ea74f3c70829479fe6fdf204b8594bd568abe5b90cc3c'
+                Authorization: 'Client-ID 26307bda28a40deef21ea74f3c70829479fe6fdf204b8594bd568abe5b90cc3c'
             }
         }).done(addImage)
             .fail(function (err) {
