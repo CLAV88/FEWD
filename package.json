@@ -18,13 +18,14 @@
   "homepage": "https://github.com/CLAV88/FEWD#readme",
   "devDependencies": {
     "eslint-config-google": "^0.9.1",
-    "gulp-sass": "^3.1.0"
+    "gulp-sass": "^4.0.1"
   },
   "dependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-less": "^4.0.0",
     "gulp-typescript": "^4.0.1",
     "handlebars": "^4.0.11",
-    "merge2": "^1.2.1"
+    "merge2": "^1.2.1",
+    "node": "^10.4.0"
   }
 }
