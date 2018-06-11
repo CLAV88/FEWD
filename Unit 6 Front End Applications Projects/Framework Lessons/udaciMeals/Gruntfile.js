@@ -6,11 +6,12 @@
 // 'test/spec/{,*/}*.js'
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
-
+require('compass')
 module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+
 
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
